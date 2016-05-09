@@ -4,11 +4,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
     networks:
       - comicdb
 
   comicdb-postgres:
     image: postgres
+    environment:
+      - "POSTGRES_PASSWORD=comicDB"
     networks:
       - comicdb
 
