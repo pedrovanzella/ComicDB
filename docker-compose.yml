@@ -1,0 +1,17 @@
+version: '2'
+services:
+  comicdb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - comicdb
+
+  comicdb-postgres:
+    image: postgres
+    networks:
+      - comicdb
+
+networks:
+  comicdb:
+    driver: bridge
