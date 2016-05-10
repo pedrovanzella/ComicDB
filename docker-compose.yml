@@ -1,18 +1,23 @@
 version: '2'
+
 services:
   comicdb:
+    container_name: comicdb
     build:
       context: .
       dockerfile: Dockerfile
+    links:
+      - postgres:postgres
     ports:
       - "3000:3000"
     networks:
       - comicdb
 
-  comicdb-postgres:
+  postgres:
     image: postgres
     environment:
       - "POSTGRES_PASSWORD=comicDB"
+      - "POSTGRES_USER=ComicDB"
     networks:
       - comicdb
 
