@@ -8,6 +8,9 @@ services:
       dockerfile: Dockerfile
     links:
       - postgres:postgres
+    volumes:
+      - .:/opt/ComicDB
+    working_dir: /opt/ComicDB
     ports:
       - "3000:3000"
     networks:
