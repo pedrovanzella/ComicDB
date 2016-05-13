@@ -11,4 +11,4 @@ RUN bundle install
 
 EXPOSE 3000
 
-ENTRYPOINT ["rails", "s"]
+ENTRYPOINT ["rails", "s", "-b", "0.0.0.0"]
