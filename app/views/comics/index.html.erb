@@ -12,15 +12,19 @@
   <tbody>
     <% @comics.each do |comic| %>
       <tr>
-        <td><%= comic.name %></td>
-        <td><%= link_to 'Show', comic %></td>
-        <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
-        <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to comic.name, comic %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Show', comic %></td>
+          <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
+          <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Comic', new_comic_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Comic', new_comic_path %>
+<% end %>
