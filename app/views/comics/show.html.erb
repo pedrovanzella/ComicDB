@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<p>Name: <%= @comic.name %></p>
+<p>Author: <%= @comic.author.try!(:name) %></p>
+<p>Artist: <%= @comic.artist.try!(:name) %></p>
+
 <%= link_to 'Edit', edit_comic_path(@comic) %> |
 <%= link_to 'Back', comics_path %>
