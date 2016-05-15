@@ -15,6 +15,7 @@ class ComicsController < ApplicationController
   # GET /comics/new
   def new
     @comic = Comic.new
+    @comic.reviews.build
   end
 
   # GET /comics/1/edit
@@ -69,6 +70,9 @@ class ComicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comic_params
-      params.require(:comic).permit(:name, :author_id, :artist_id)
+      params.require(:comic).permit(:name, :author_id, :artist_id,
+                                    :reviews_attributes => [:art_stars,
+                                                            :story_stars,
+                                                            :comment])
     end
 end

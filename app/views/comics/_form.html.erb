@@ -5,6 +5,12 @@
     <%= f.input :name %>
     <%= f.association :artist %>
     <%= f.association :author %>
+
+    <%= f.simple_fields_for :reviews do |r| %>
+      <%= r.input :art_stars, collection: 1..5 %>
+      <%= r.input :story_stars, collection: 1..5 %>
+      <%= r.input :comment %>
+    <% end %>
   </div>
 
   <div class="form-actions">

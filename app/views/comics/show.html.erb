@@ -4,5 +4,15 @@
 <p>Author: <%= @comic.author.try!(:name) %></p>
 <p>Artist: <%= @comic.artist.try!(:name) %></p>
 
+<div class="reviews">
+  <% @comic.reviews.each do |review| %>
+    <div class="review">
+      <p>Comment: <%= review.comment %></p>
+      <p>Art: <%= review.art_stars %></p>
+      <p>Story: <%= review.story_stars %></p>
+    </div>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_comic_path(@comic) %> |
 <%= link_to 'Back', comics_path %>
