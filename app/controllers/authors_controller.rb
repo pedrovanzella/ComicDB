@@ -11,6 +11,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.json
   def show
+    @comics = @author.comics.all
   end
 
   # GET /authors/new
